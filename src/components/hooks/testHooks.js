@@ -73,7 +73,6 @@ const testHooks = () => {
 			if (index !== -1) {
 				// console.log('11', dialogItem.value)
 				data.value[index] = { ...formData, id: dialogItem.value.id }; // 保留原来的id
-				data.value = [...data.value]; // 触发视图更新
 				console.log('Updated item:', data.value[index]);
 			}
 		} else {

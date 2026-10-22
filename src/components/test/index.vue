@@ -33,7 +33,7 @@
 	<addAndEidtDialog v-model:visible="dialogFormVisible" :item="dialogItem" :sublLading="sublLading" :priorityList="priorityList" @submit="handleDialogSubmit" />
 </template>
 <script lang="ts" setup>
-import testHooks from '..//components/hooks/testHooks'
+import testHooks from '../hooks/testHooks'
 import { Delete, Edit } from '@element-plus/icons-vue'
 import addAndEidtDialog from '@/components/addAndEidtDialog/index.vue'
 
@@ -53,5 +53,5 @@ const {
 } = testHooks()
 </script>
 <style scoped>
-@import './test.css';
+@import './index.css';
 </style>
