@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="test">
 		<!--顶部 筛选项 和操作按钮 -->
 		<div class="select-container">
 			<el-select v-model="searchForm.priority" placeholder="请选择" style="width: 200px; margin-right: 16px">
@@ -16,7 +16,6 @@
 		<div class="card-container">
 			<div v-for="item in data" :key="item.id" class="card-item">
 				{{ item.title }}
-
 				<el-popconfirm title="确定要删除吗？" @confirm="handleDelete(item.id)">
 					<template #reference>
 						<el-icon :size="20">
@@ -30,12 +29,13 @@
 			</div>
 		</div>
 	</div>
+	<div>底部底部底部底部底部底部底部底部底部底部底部底部底部底部底部底部底部底部</div>
 	<addAndEidtDialog v-model:visible="dialogFormVisible" :item="dialogItem" :sublLading="sublLading" :priorityList="priorityList" @submit="handleDialogSubmit" />
 </template>
 <script lang="ts" setup>
-import testHooks from '..//components/hooks/testHooks';
-import { Delete, Edit } from '@element-plus/icons-vue';
-import addAndEidtDialog from '@/components/addAndEidtDialog/index.vue';
+import testHooks from '..//components/hooks/testHooks'
+import { Delete, Edit } from '@element-plus/icons-vue'
+import addAndEidtDialog from '@/components/addAndEidtDialog/index.vue'
 
 const {
 	data,
@@ -50,24 +50,8 @@ const {
 	handleDialogSubmit,
 	handleDelete,
 	dialogItem
-} = testHooks();
+} = testHooks()
 </script>
 <style scoped>
-.select-container {
-	margin: 16px 0;
-	display: flex;
-	align-items: center;
-}
-
-.card-container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16px;
-}
-
-.card-item {
-	width: 200px;
-	padding: 16px;
-	border: 1px solid #ccc;
-}
+@import './test.css';
 </style>
