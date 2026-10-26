@@ -25,4 +25,11 @@ export default defineConfig({
       '@': '/src', // 将 @ 映射到 src 目录
     },
   },
+  //本地代理
+  server:{
+
+  }
+  //打包配置
+  //插件配置
+
 })

@@ -10,3 +10,6 @@ app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
 
+
+console.log('-----',import.meta.env.MODE)
+console.log(6666,import.meta.env)

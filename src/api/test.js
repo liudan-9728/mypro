@@ -12,29 +12,14 @@ import Mock from 'mockjs'
 
 // 模拟一个用户数据的API
 Mock.mock('/api/user', {
-    'userId|1-100': 1, // 生成1-100之间的随机数
-    'userName': '@cname', // 生成随机中文名
-    'age|18-30': 1, // 生成18-30之间的随机数
-    'email': '@email', // 生成随机邮箱
-});
+	'userId|1-100': 1, // 生成1-100之间的随机数
+	userName: '@cname', // 生成随机中文名
+	'age|18-30': 1, // 生成18-30之间的随机数
+	email: '@email' // 生成随机邮箱
+})
 
-const getUserInfo = async () => {
-    try {
-        const response = await axios.get('/api/user');
-        console.log('Mock data fetched:', response.data);
-        return response.data; // 返回模拟数据
-    } catch (error) {
-        console.error('Error fetching mock data:', error);
-        throw error; // 抛出错误以便调用方处理
-    }
-};
-
-// 定义一个api接口，返回模拟数据
-const fetchMockData = async () => {
-    return axios.get('/api/user')
+const fetchGetUser = (data) => {
+	return axios.post('api/getUser', data)
 }
 
-export { fetchMockData }
-
-
-
+export {  fetchGetUser }
