@@ -1,9 +1,15 @@
 <template>
-  <el-aside width="264px">
-    <el-menu class="aside-menu" @open="handleOpen" @close="handleClose">
+  <el-aside :width="!collapseValue? '264px': '64px'"">
+    <el-menu
+      class="aside-menu"
+      :collapse="collapseValue"
+      :collapse-transition="false"
+      @open="handleOpen"
+      @close="handleClose"
+    >
       <div class="logo">
-        <img src="@/assets/img/机器人.png" alt="Logo" />
-        <div class="logo-text">
+        <img src="@/assets/img/机器人.png" alt="Logo" width="30"/>
+        <div class="logo-text" v-show="!collapseValue">
           <h1 class="logo-title">心理健康Ai助手</h1>
           <p class="logo-subtitle">为您提供专业的心理健康支持</p>
         </div>
@@ -15,15 +21,20 @@
         @click="router.push(item.path)"
       >
         <el-icon><component :is="item.meta.icon"></component></el-icon>
-        {{ item.meta.title }}
+        <span v-show="!collapseValue">{{ item.meta.title }}</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
 </template>
 <script setup>
 import { useRouter } from 'vue-router'
+import { useStore } from '@/store/index'
+import { watch, computed } from 'vue'
+
 const router = useRouter()
-console.log(router.options.routes[0].children) // 获取当前路由对象
+const store = useStore()
+
+const collapseValue = computed(() => store.isCollapse)
 
 // 切换路由菜单
 const handleOpen = (key, keyPath) => {
@@ -32,22 +43,30 @@ const handleOpen = (key, keyPath) => {
 const handleClose = (key, keyPath) => {
   console.log(key, keyPath)
 }
+
+// watch(
+//   () => useStore().isCollapse,
+//   (newVal) => {
+//     console.log('isCollapse changed:', newVal)
+//   }
+// )
 </script>
 <style lang="scss" scoped>
 .aside-menu {
   height: 100%;
-  
+
   .logo {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
+    justify-content: center;
     border-bottom: 1px solid #e5e7eb;
     img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
+   
+      // margin-right: 10px;
     }
     .logo-text {
+      margin-left: 10px;
       .logo-title {
         font-size: 18px;
         font-weight: bold;
