@@ -61,10 +61,7 @@ const handleClose = (key, keyPath) => {
     padding: 10px 20px;
     justify-content: center;
     border-bottom: 1px solid #e5e7eb;
-    img {
-   
-      // margin-right: 10px;
-    }
+    
     .logo-text {
       margin-left: 10px;
       .logo-title {
